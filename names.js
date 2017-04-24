@@ -1562,7 +1562,13 @@ var names = [
     "abdullah",
     "zachary",
     "yusuf",
-    "yosef"
+    "yosef",
+	"add",
+	"all"
+	
+	
+	
+	
 	
 	
 ];
@@ -1574,14 +1580,14 @@ var z=names.filter(function(name){
 });
 
 console.log("1. The names start with the letter z is = "+z.length);
-document.write("1. The names start with the letter z is = "+z.length);
+document.write("1. The names start with the letter z is = "+z.length+"<br>");
 //2.How many baby names have the letter ‘z’ in them anywhere?
 var z=names.filter(function(name){
   return name.indexOf('z')!=-1;
 });
 
 console.log("2.the names have the letter z in them anywhere is = "+z.length);
-
+document.write("2.the names have the letter z in them anywhere is = "+z.length+"<br>");
 //3.Create a new array that contains all of the names containing a 'w' with the first letter upper-case.
 var W=names.filter(function(currentName){
   if((currentName.toLowerCase().indexOf('w') !== -1) && (currentName[0] === currentName[0].toUpperCase())){
@@ -1590,7 +1596,7 @@ var W=names.filter(function(currentName){
 });
 
 console.log("3(a).The names containing a 'w' with the first letter upper-case is = "+W);
-
+document.write("3(a).The names containing a 'w' with the first letter upper-case is = "+W+"<br>");
 var bW=names.reduce(function(totalCount,currentName){
   if((currentName.toLowerCase().indexOf('w') !== -1) && (currentName[0] === currentName[0].toUpperCase())){
     totalCount+=1;
@@ -1599,27 +1605,48 @@ var bW=names.reduce(function(totalCount,currentName){
 },0);
 
 console.log("3(b).The names containing a 'w' with the first letter upper-case is :" + bW);
-
+document.write("3(b).The names containing a 'w' with the first letter upper-case is =" + bW+"<br>");
 //4.Do all of the names contain vowels?
 
 var vow=names.filter(function(name){
 return name.indexOf('a','e','i','o','u')!=-1;
 });
 console.log("4. The names contain vowel = "+vow.length);
+document.write("4. The names contain vowel = "+vow.length+"<br>");
 //5.Are there any names that have only two letters?
 
-
 var two = names.filter(function(name){
-return name.length <= 2;
+return name.length <= 2 && name.length >1;
 });
-console.log("5.there any names that have only two letters= "+two);
-
+console.log("5.there any names that have only two letters= " +two);
+document.write("5.there any names that have only two letters= " +two+"<br>");
 //6.Is your name in the list?
 
+var sname="hussain";
+var Any = names.some(function(name){
+return name == sname;
+});
+console.log("6.Is your name in the list="+Any);
+document.write("6.Is your name in the list="+Any+"<br>");
 //7.Find the name that would come first alphabetically.
 
+var sNames = names.sort();
+console.log("7.the name that would come first alphabetically ="+sNames);
+document.write("7.the name that would come first alphabetically ="+sNames+"<br>");
 //8.How many times does the letter ‘z’ appear in the list?
-
+var vz=names.filter(function(name){
+return name.indexOf('z')!=-1;
+});
+console.log("8. The the letter z appear in the list = "+vz.length);
+document.write("8. The the letter z appear in the list = "+vz.length+"<br>");
 //9.What is the maximum number of vowels in any name?
+
+const v = "aeiouAEIOU";
+
+var vowelLength = names.reduce((n=1, c=1) => v.indexOf(c) > -1 ? ++n : n, 0);
+
+console.log(vowelLength);
+
+
 
 //10.How many names have the maximum number of vowels that you found in the previous problem?
